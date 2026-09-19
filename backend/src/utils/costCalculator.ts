@@ -4,3 +4,6 @@ export function calculateProfit(freight: number, fuelCost: number, tollCost: num
 export function calculateTotalCost(...items: number[]) {
   return items.reduce((sum, item) => sum + item, 0);
 }
+export function calculateSummaryProfit(totalRevenue: number, totalCost: number) {
+  return totalRevenue - totalCost;
+}
