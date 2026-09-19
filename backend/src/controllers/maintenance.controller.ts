@@ -1,9 +1,12 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { MaintenanceService } from '../services/maintenance.service';
+import { CompleteMaintenancePayload } from '../types/interfaces';
 @Controller('maintenance-records')
 export class MaintenanceController {
   constructor(private readonly service: MaintenanceService) {}
   @Get() findAll() { return this.service.findAll(); }
   @Get(':id') findOne(@Param('id') id: string) { return this.service.findOne(Number(id)); }
   @Post() create(@Body() payload: any) { return this.service.create(payload); }
+  @Post(':id/start') start(@Param('id') id: string) { return this.service.start(Number(id)); }
+  @Post(':id/complete') complete(@Param('id') id: string, @Body() payload: CompleteMaintenancePayload) { return this.service.complete(Number(id), payload); }
 }

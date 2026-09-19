@@ -11,4 +11,6 @@ export class MaintenanceRecordEntity {
   @Column('float') nextMileage!: number;
   @Column() nextDate!: string;
   @Column() status!: string;
+  @Column('float', { nullable: true }) completionMileage?: number;
+  @Column({ nullable: true }) completedDate?: string;
 }
